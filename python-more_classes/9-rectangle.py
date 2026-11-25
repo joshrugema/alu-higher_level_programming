@@ -90,11 +90,13 @@ class Rectangle:
         # self.print_symbol looks on the instance first, then the class
         # str() turns any type (like a list) into text first
         symbol = str(self.print_symbol)
-        rows = []
+        text = ""
         for i in range(self.__height):
-            rows.append(symbol * self.__width)
-        # Join the rows with new lines, no new line after the last row
-        return "\n".join(rows)
+            text = text + symbol * self.__width
+            # A new line after every row except the last one
+            if i < self.__height - 1:
+                text = text + "\n"
+        return text
 
     def __repr__(self):
         """Return a string that eval() can use to recreate the rectangle."""

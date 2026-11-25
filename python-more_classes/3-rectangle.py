@@ -80,8 +80,11 @@ class Rectangle:
         # __str__ RETURNS the text; print() is what shows it
         if self.__width == 0 or self.__height == 0:
             return ""
-        rows = []
+        text = ""
         for i in range(self.__height):
-            rows.append("#" * self.__width)
-        # Join the rows with new lines, no new line after the last row
-        return "\n".join(rows)
+            # "#" * 3 repeats the string: "###"
+            text = text + "#" * self.__width
+            # A new line after every row except the last one
+            if i < self.__height - 1:
+                text = text + "\n"
+        return text

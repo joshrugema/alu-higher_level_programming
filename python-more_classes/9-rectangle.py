@@ -17,9 +17,9 @@ class Rectangle:
             width: the width of the rectangle, 0 by default.
             height: the height of the rectangle, 0 by default.
         """
-        # Height first, so __dict__ shows height before width
-        self.height = height
+        # Width first, so square(-2) complains about width
         self.width = width
+        self.height = height
         # Count one more rectangle (on the class, not on self)
         Rectangle.number_of_instances += 1
 
